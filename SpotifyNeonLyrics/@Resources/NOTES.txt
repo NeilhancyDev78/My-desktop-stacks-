@@ -1,0 +1,21 @@
+SpotifyNeonLyrics — Project Notes (source of truth)
+
+Golden Build Policy
+- GOLDEN build = last confirmed working build. Never edit directly.
+- WORKING build = where experiments happen.
+- If anything breaks: restore GOLDEN build zip.
+
+Current Golden Build
+- Date: 2026-03-03
+- Status: Confirmed working (“DING DING”)
+- Lyrics system: STABLE 2.1 lyrics pipeline port (Lua + Main.ini lyrics measures)
+
+Key Files
+- Main skin: Main.ini
+- Hub skin: Hub.ini (keep current features)
+- Lyrics script: @Resources\Scripts\LyricsParser.lua
+
+Changelog
+- 2026-03-03: Established Golden Build + notes/guardrails. (No behavior changes)
+
+- 2026-03-03: UI — Large size lyrics panel was slightly off-center vertically. Added LyricsYOffset and updated MeasureLyricsBaseY to include it. In MeasureApplySize, set LyricsYOffset before !UpdateMeasure MeasureLyricsBaseY so Large recalculates correctly. Large uses LyricsYOffset "(10 * #Scale#)" (tunable); Small/Medium use 0. Also fixed a typo (missing *) and removed an extra trailing bracket ]] that could cause parsing issues.
